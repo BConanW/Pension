@@ -11,10 +11,9 @@ webhook_url =  ""
 class NestPension:
 
     def __init__(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.binary_location = '/Applications/Google Chrome'
-        self.driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"))
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("headless")
+        self.driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"), chrome_options=chrome_options)
         self.driver.get("https://www.nestpensions.org.uk/schemeweb/NestWeb/faces/public/MUA/pages/loginPage.xhtml")
 
     def login(self):
